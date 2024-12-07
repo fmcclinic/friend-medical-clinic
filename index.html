@@ -4,387 +4,54 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Friend Medical Clinic</title>
+   <!-- External CSS -->
    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   <!-- Custom CSS -->
    <link href="css/style.css" rel="stylesheet">
+   <!-- Component CSS -->
+   <link href="components/header/header.css" rel="stylesheet">
+   <link href="components/hero/hero.css" rel="stylesheet">
+   <link href="components/specialties/specialties.css" rel="stylesheet">
+   <link href="components/gallery/gallery.css" rel="stylesheet">
+   <link href="components/news/news.css" rel="stylesheet">
+   <link href="components/contact/contact.css" rel="stylesheet">
+   <link href="components/footer/footer.css" rel="stylesheet">
 </head>
 <body>
    <!-- Header -->
-   <header class="fixed w-full z-50 bg-white/90 header-sticky shadow-md">
-       <div class="container mx-auto px-4 py-4">
-           <div class="flex justify-between items-center">
-               <div class="flex items-center">
-                   <img src="assets/images/logo.png" alt="Logo" class="h-12 w-auto">
-                   <div class="ml-3">
-                       <h1 class="text-xl font-bold text-blue-600">FRIEND MEDICAL CLINIC</h1>
-                       <p class="text-sm text-gray-600">Chăm sóc sức khỏe tận tâm</p>
-                   </div>
-               </div>
-               <nav class="hidden md:flex space-x-8">
-                   <a href="#home" class="text-gray-700 hover:text-blue-600">Trang chủ</a>
-                   <a href="#specialties" class="text-gray-700 hover:text-blue-600">Chuyên khoa</a>
-                   <a href="#gallery" class="text-gray-700 hover:text-blue-600">Hình ảnh</a>
-                   <a href="#news" class="text-gray-700 hover:text-blue-600">Tin tức</a>
-                   <a href="#contact" class="text-gray-700 hover:text-blue-600">Liên hệ</a>
-               </nav>
-               <button id="mobile-menu-button" class="md:hidden">
-                   <i class="fas fa-bars text-2xl text-gray-600"></i>
-               </button>
-           </div>
+   <div id="header"></div>
 
-           <!-- Mobile Menu -->
-           <div id="mobile-menu" class="md:hidden hidden">
-               <div class="py-2 space-y-2">
-                   <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Trang chủ</a>
-                   <a href="#specialties" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Chuyên khoa</a>
-                   <a href="#gallery" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Hình ảnh</a>
-                   <a href="#news" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Tin tức</a>
-                   <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Liên hệ</a>
-               </div>
-           </div>
-       </div>
-   </header>
+   <main>
+       <!-- Hero -->
+       <div id="hero"></div>
 
-   <!-- Hero Section -->
-   <section id="home" class="relative min-h-screen pt-20">
-       <!-- Hero background -->
-       <div class="absolute inset-0 z-0">
-           <img data-src="assets/images/hero-bg.jpg" alt="Background" class="w-full h-full object-cover">
-           <div class="absolute inset-0 bg-blue-900/70"></div>
-       </div>
+       <!-- Specialties -->
+       <div id="specialties"></div>
 
-       <!-- Hero content -->
-       <div class="relative z-10 container mx-auto px-4 py-20">
-           <div class="text-center text-white">
-               <h2 class="text-4xl md:text-6xl font-bold mb-6">Từ Các Bệnh Viện Lớn</h2>
-               <p class="text-xl md:text-2xl mb-12">Bác sĩ từ các bệnh viện Từ Dũ, FV, VinMed</p>
+       <!-- Gallery -->
+       <div id="gallery"></div>
 
-               <!-- Feature cards -->
-               <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-                   <div class="bg-white/10 backdrop-blur rounded-xl p-6">
-                       <i class="fas fa-user-md text-4xl mb-4"></i>
-                       <h3 class="text-xl font-bold">Đội ngũ y bác sĩ giàu kinh nghiệm</h3>
-                   </div>
-                   <div class="bg-white/10 backdrop-blur rounded-xl p-6">
-                       <i class="fas fa-clock text-4xl mb-4"></i>
-                       <h3 class="text-xl font-bold">8:00 - 20:00 | Cả Chủ Nhật</h3>
-                   </div>
-                   <div class="bg-white/10 backdrop-blur rounded-xl p-6">
-                       <i class="fas fa-hospital text-4xl mb-4"></i>
-                       <h3 class="text-xl font-bold">Máy móc hiện đại</h3>
-                   </div>
-               </div>
+       <!-- News -->
+       <div id="news"></div>
 
-               <!-- CTA Buttons -->
-               <div class="flex flex-col md:flex-row justify-center gap-6">
-                   <a href="#appointment" class="btn btn-primary">
-                       <i class="fas fa-calendar-alt mr-2"></i>
-                       Đặt Lịch Khám
-                   </a>
-                   <a href="tel:02835355353" class="btn btn-secondary">
-                       <i class="fas fa-phone-alt mr-2"></i>
-                       028 3535 5353
-                   </a>
-               </div>
-           </div>
-       </div>
-   </section>
-
-   <!-- Specialties Section -->
-   <section id="specialties" class="py-16 bg-white">
-       <div class="container mx-auto px-4">
-           <h2 class="text-3xl font-bold text-center mb-12">Chuyên Khoa</h2>
-           <div class="grid md:grid-cols-3 gap-8">
-               <!-- Sản phụ khoa -->
-               <div class="card p-8">
-                   <div class="flex items-center mb-6">
-                       <i class="fas fa-user-md text-3xl text-blue-600 mr-4"></i>
-                       <div>
-                           <h3 class="text-xl font-bold">Sản Phụ Khoa</h3>
-                           <p class="text-blue-600">Bệnh viện Từ Dũ</p>
-                       </div>
-                   </div>
-                   <ul class="space-y-3">
-                       <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Khám thai định kỳ</li>
-                       <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Siêu âm 4D</li>
-                       <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Sàng lọc trước sinh</li>
-                   </ul>
-               </div>
-
-               <!-- Tai Mũi Họng -->
-               <div class="card p-8">
-                   <div class="flex items-center mb-6">
-                       <i class="fas fa-stethoscope text-3xl text-blue-600 mr-4"></i>
-                       <div>
-                           <h3 class="text-xl font-bold">Tai Mũi Họng</h3>
-                           <p class="text-blue-600">Bệnh viện VinMed</p>
-                       </div>
-                   </div>
-                   <ul class="space-y-3">
-                       <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Nội soi tai mũi họng</li>
-                       <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Điều trị viêm xoang</li>
-                       <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Phẫu thuật nội soi</li>
-                   </ul>
-               </div>
-
-               <!-- Nội Khoa -->
-               <div class="card p-8">
-                   <div class="flex items-center mb-6">
-                       <i class="fas fa-heartbeat text-3xl text-blue-600 mr-4"></i>
-                       <div>
-                           <h3 class="text-xl font-bold">Nội Khoa</h3>
-                           <p class="text-blue-600">Bệnh viện FV</p>
-                       </div>
-                   </div>
-                   <ul class="space-y-3">
-                       <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Khám tổng quát</li>
-                       <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Điều trị bệnh mãn tính</li>
-                       <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Tư vấn dinh dưỡng</li>
-                   </ul>
-               </div>
-           </div>
-       </div>
-   </section>
-
-<!-- Gallery Section -->
-<section id="gallery" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Hình Ảnh Phòng Khám</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <!-- Gallery Item 1 -->
-            <div class="relative group overflow-hidden rounded-lg">
-                <img data-src="assets/images/gallery/gallery-1.jpg" 
-                     alt="Sảnh chờ" 
-                     class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                    <h3 class="font-semibold">Sảnh chờ hiện đại</h3>
-                    <p class="text-sm">Không gian thoáng đãng, tiện nghi</p>
-                </div>
-            </div>
-
-            <!-- Gallery Item 2 -->
-            <div class="relative group overflow-hidden rounded-lg">
-                <img data-src="assets/images/gallery/gallery-2.jpg" 
-                     alt="Phòng khám" 
-                     class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                    <h3 class="font-semibold">Phòng khám sản</h3>
-                    <p class="text-sm">Trang thiết bị hiện đại</p>
-                </div>
-            </div>
-
-            <!-- Gallery Item 3 -->
-            <div class="relative group overflow-hidden rounded-lg">
-                <img data-src="assets/images/gallery/gallery-3.jpg" 
-                     alt="Thiết bị y tế" 
-                     class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                    <h3 class="font-semibold">Máy siêu âm 4D</h3>
-                    <p class="text-sm">Công nghệ mới nhất</p>
-                </div>
-            </div>
-
-            <!-- Gallery Item 4 -->
-            <div class="relative group overflow-hidden rounded-lg">
-                <img data-src="assets/images/gallery/gallery-4.jpg" 
-                     alt="Phòng tiểu phẫu" 
-                     class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                    <h3 class="font-semibold">Phòng tiểu phẫu</h3>
-                    <p class="text-sm">Đạt chuẩn vô trùng</p>
-                </div>
-            </div>
-
-            <!-- Gallery Item 5 -->
-            <div class="relative group overflow-hidden rounded-lg">
-                <img data-src="assets/images/gallery/gallery-5.jpg" 
-                     alt="Phòng chờ" 
-                     class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                    <h3 class="font-semibold">Khu vực chờ</h3>
-                    <p class="text-sm">Không gian thoải mái</p>
-                </div>
-            </div>
-
-            <!-- Gallery Item 6 -->
-            <div class="relative group overflow-hidden rounded-lg">
-                <img data-src="assets/images/gallery/gallery-6.jpg" 
-                     alt="Quầy tiếp tân" 
-                     class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                    <h3 class="font-semibold">Quầy tiếp tân</h3>
-                    <p class="text-sm">Phục vụ chuyên nghiệp</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-   <!-- News Section -->
-   <section id="news" class="py-16 bg-gray-50">
-       <div class="container mx-auto px-4">
-           <h2 class="text-3xl font-bold text-center mb-12">Tin Tức Y Khoa</h2>
-           
-           <div class="grid grid-cols-12 gap-6">
-               <!-- Cột 1: Mục lục -->
-               <div class="col-span-12 md:col-span-3">
-                   <div class="bg-white rounded-lg shadow p-6">
-                       <h3 class="font-bold text-lg mb-4 pb-2 border-b">Bài Viết Mới</h3>
-                       <ul id="news-list" class="space-y-4">
-                           <li class="cursor-pointer hover:text-blue-600 transition-colors active" data-news-id="1">
-                               'Rejuvenating' vision for aging eyes
-                           </li>
-                           <li class="cursor-pointer hover:text-blue-600 transition-colors" data-news-id="2">
-                               Dr Huynh Huu Danh, Specialist level I at FV Hospital
-                           </li>
-                           <li class="cursor-pointer hover:text-blue-600 transition-colors" data-news-id="3">
-                               Vo Trieu Dat, MD, MSc: 'The pure joy of welcoming new life'
-                           </li>
-                       </ul>
-                   </div>
-               </div>
-
-               <!-- Cột 2: Hình ảnh -->
-               <div class="col-span-12 md:col-span-4">
-                   <div class="sticky top-24">
-                       <img id="news-image" data-src="assets/images/news/news-1.jpg" 
-                            alt="News" class="w-full h-64 object-cover rounded-lg shadow-md">
-                   </div>
-               </div>
-
-               <!-- Cột 3: Nội dung -->
-               <div id="news-content" class="col-span-12 md:col-span-5">
-                   <div class="bg-white rounded-lg shadow p-6">
-                       <h3 class="text-xl font-bold text-blue-600 mb-2">
-                           'Rejuvenating' vision for aging eyes
-                       </h3>
-                       <p class="text-gray-500 text-sm mb-4">Monday, 02/12/2024</p>
-                       <p class="text-gray-700">
-                           From the age of 40, presbyopia often begins to emerge...
-                       </p>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
-
-   <!-- Contact Section -->
-   <section id="contact" class="py-16 bg-gray-100">
-       <div class="container mx-auto px-4">
-           <h2 class="text-3xl font-bold text-center mb-12">Liên Hệ</h2>
-           
-           <div class="grid md:grid-cols-2 gap-8">
-               <!-- Contact Info -->
-               <div class="space-y-6">
-                   <div class="flex items-center space-x-4">
-                       <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                           <i class="fas fa-phone text-blue-600"></i>
-                       </div>
-                       <div>
-                           <h3 class="font-bold">Điện thoại</h3>
-                           <p>028 3535 5353</p>
-                       </div>
-                   </div>
-
-                   <div class="flex items-center space-x-4">
-                       <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                           <i class="fas fa-map-marker-alt text-blue-600"></i>
-                       </div>
-                       <div>
-                           <h3 class="font-bold">Địa chỉ</h3>
-                           <p>A12 Saigon Villas Hill, 99 Lê Văn Việt, Thành phố Thủ Đức, TP.HCM 700000</p>
-                       </div>
-                   </div>
-
-                   <div class="flex items-center space-x-4">
-                       <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                           <i class="fas fa-clock text-blue-600"></i>
-                       </div>
-                       <div>
-                           <h3 class="font-bold">Giờ làm việc</h3>
-                           <p>Thứ 2 - Thứ 7: 8:00 - 20:00</p>
-                           <p>Chủ nhật: 8:00 - 12:00</p>
-                       </div>
-                   </div>
-
-<!-- Google Maps -->
-                   <div class="rounded-lg overflow-hidden shadow-lg h-64">
-                       <iframe 
-                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.7052888840663!2d106.78950631744384!3d10.844726792271046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752738a7dc0465%3A0xa6cf8ac82a3141e0!2zUGjDsm5nIEtow6FtIEZNQyAvIEZNQyBDbGluaWM!5e0!3m2!1svi!2s!4v1650000000000!5m2!1svi!2s"
-                           width="100%" 
-                           height="100%" 
-                           style="border:0;" 
-                           allowfullscreen="" 
-                           loading="lazy">
-                       </iframe>
-                   </div>
-               </div>
-
-               <!-- Contact Form -->
-               <div class="bg-white rounded-lg shadow-lg p-8">
-                   <h3 class="text-2xl font-bold mb-6">Đặt Lịch Khám</h3>
-                   <form id="appointment-form" class="space-y-4">
-                       <div>
-                           <label class="block text-gray-700 mb-2">Họ và tên</label>
-                           <input type="text" name="name" class="w-full p-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                       </div>
-                       <div>
-                           <label class="block text-gray-700 mb-2">Số điện thoại</label>
-                           <input type="tel" name="phone" class="w-full p-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                       </div>
-                       <div>
-                           <label class="block text-gray-700 mb-2">Chọn chuyên khoa</label>
-                           <select name="department" class="w-full p-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                               <option value="">-- Chọn chuyên khoa --</option>
-                               <option value="san">Sản phụ khoa</option>
-                               <option value="tmh">Tai Mũi Họng</option>
-                               <option value="noi">Nội khoa</option>
-                           </select>
-                       </div>
-                       <div>
-                           <label class="block text-gray-700 mb-2">Ngày khám</label>
-                           <input type="date" name="date" class="w-full p-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                       </div>
-                       <div>
-                           <label class="block text-gray-700 mb-2">Ghi chú</label>
-                           <textarea name="note" class="w-full p-3 border rounded-lg focus:outline-none focus:border-blue-500" rows="4"></textarea>
-                       </div>
-                       <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
-                           Đặt lịch ngay
-                       </button>
-                   </form>
-               </div>
-           </div>
-       </div>
-   </section>
+       <!-- Contact -->
+       <div id="contact"></div>
+   </main>
 
    <!-- Footer -->
-   <footer class="bg-gray-800 text-white">
-       <div class="container mx-auto px-4 py-12">
-           <div class="grid md:grid-cols-3 gap-8">
-               <div>
-                   <h4 class="text-lg font-bold mb-4">FRIEND MEDICAL CLINIC</h4>
-                   <p class="mb-2">Chăm sóc sức khỏe tận tâm</p>
-                   <p>© 2024 Friend Medical Clinic. Tất cả quyền được bảo lưu.</p>
-               </div>
-               <div>
-                   <h4 class="text-lg font-bold mb-4">Liên hệ</h4>
-                   <p class="mb-2">Điện thoại: 028 3535 5353</p>
-                   <p>Email: info@friendmedicalclinic.com</p>
-               </div>
-               <div>
-                   <h4 class="text-lg font-bold mb-4">Theo dõi chúng tôi</h4>
-                   <div class="flex space-x-4">
-                       <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook fa-2x"></i></a>
-                       <a href="#" class="hover:text-blue-400"><i class="fab fa-youtube fa-2x"></i></a>
-                       <a href="#" class="hover:text-blue-400"><i class="fab fa-instagram fa-2x"></i></a>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </footer>
+   <div id="footer"></div>
 
-   <!-- JavaScript -->
+   <!-- Scripts -->
    <script src="js/main.js"></script>
+   <script src="js/components.js"></script>
+   <!-- Component Scripts -->
+   <script src="components/header/header.js"></script>
+   <script src="components/hero/hero.js"></script>
+   <script src="components/specialties/specialties.js"></script>
+   <script src="components/gallery/gallery.js"></script>
+   <script src="components/news/news.js"></script>
+   <script src="components/contact/contact.js"></script>
+   <script src="components/footer/footer.js"></script>
 </body>
 </html>
