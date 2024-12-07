@@ -1,133 +1,116 @@
-// DOM Elements
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileMenuButton = document.getElementById('mobile-menu-button'); 
-const newsItems = document.querySelectorAll('#news-list li');
-const newsImage = document.getElementById('news-image');
-const newsContent = document.getElementById('news-content');
-const appointmentForm = document.getElementById('appointment-form');
+// js/main.js
 
-// News Data
-const newsData = {
-   1: {
-       title: "'Rejuvenating' vision for aging eyes",
-       date: "Monday, 02/12/2024",
-       content: "From the age of 40, presbyopia often begins to emerge, bringing challenges such as blurry vision for close objects; difficulty seeing in low-light conditions; eye strain, and headaches.",
-       image: "assets/images/news/news-1.jpg"
-   },
-   2: {
-       title: "Dr Huynh Huu Danh, Specialist level I at FV Hospital",
-       date: "Monday, 02/12/2024", 
-       content: "As a young Vietnamese doctor with international specialist qualifications...",
-       image: "assets/images/news/news-2.jpg"
-   },
-   3: {
-       title: "Vo Trieu Dat, MD, MSc: 'The pure joy of welcoming new life'",
-       date: "Monday, 02/12/2024",
-       content: "With years of experience in obstetrics and gynecology...", 
-       image: "assets/images/news/news-3.jpg"
-   }
-};
-
-// Mobile Menu Toggle
-mobileMenuButton.addEventListener('click', () => {
-   mobileMenu.classList.toggle('hidden');
-});
-
-// News Section Functionality 
-newsItems.forEach(item => {
-   item.addEventListener('click', function() {
-       const newsId = this.getAttribute('data-news-id');
-       const news = newsData[newsId];
-
-       // Update active state
-       newsItems.forEach(i => i.classList.remove('active'));
-       this.classList.add('active');
-
-       // Update content
-       newsImage.src = news.image;
-       newsContent.innerHTML = `
-           <div class="bg-white rounded-lg shadow p-6">
-               <h3 class="text-xl font-bold text-blue-600 mb-2">${news.title}</h3>
-               <p class="text-gray-500 text-sm mb-4">${news.date}</p>
-               <p class="text-gray-700">${news.content}</p>
-           </div>
-       `;
-   });
-});
-
-// Appointment Form Handling
-appointmentForm.addEventListener('submit', function(e) {
-   e.preventDefault();
-   
-   // Form validation
-   const formData = new FormData(this);
-   let isValid = true;
-   let errorMessage = '';
-
-   // Basic validation
-   if (!formData.get('name')) {
-       errorMessage += 'Vui lòng nhập họ tên\n';
-       isValid = false;
-   }
-
-   if (!formData.get('phone')) {
-       errorMessage += 'Vui lòng nhập số điện thoại\n';
-       isValid = false;
-   }
-
-   if (!formData.get('date')) {
-       errorMessage += 'Vui lòng chọn ngày khám\n';
-       isValid = false;
-   }
-
-   if (!isValid) {
-       alert(errorMessage);
-       return;
-   }
-
-   // Success message
-   alert('Cảm ơn bạn đã đặt lịch. Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất!');
-   this.reset();
-});
-
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-   anchor.addEventListener('click', function(e) {
-       e.preventDefault();
-       document.querySelector(this.getAttribute('href')).scrollIntoView({
-           behavior: 'smooth'
-       });
-   });
-});
-
-// Header Scroll Effect
-window.addEventListener('scroll', function() {
-   const header = document.querySelector('header');
-   if (window.scrollY > 100) {
-       header.classList.add('shadow-md', 'bg-white/95');
-   } else {
-       header.classList.remove('shadow-md', 'bg-white/95');
-   }
-});
-
-// Lazy Loading Images
-document.addEventListener('DOMContentLoaded', function() {
-   const lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'));
-
-   if ('IntersectionObserver' in window) {
-       let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-           entries.forEach(function(entry) {
-               if (entry.isIntersecting) {
-                   let lazyImage = entry.target;
-                   lazyImage.src = lazyImage.dataset.src;
-                   lazyImage.removeAttribute('data-src');
-                   lazyImageObserver.unobserve(lazyImage);
-               }
-           });
-       });
-
-       lazyImages.forEach(function(lazyImage) {
-           lazyImageObserver.observe(lazyImage);
-       });
-   }
-});
+// Main Application Class
+class FMCApp {
+    constructor() {
+        this.init();
+    }
+ 
+    init() {
+        this.setupScrollEffects();
+        this.setupMobileMenu();
+        this.setupStatusBadge();
+    }
+ 
+    // Xử lý scroll effects
+    setupScrollEffects() {
+        const header = document.querySelector('header');
+        let lastScroll = 0;
+ 
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+ 
+            // Header effect
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+ 
+            // Hide/Show header on scroll
+            if (currentScroll > lastScroll) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+ 
+            lastScroll = currentScroll;
+        });
+    }
+ 
+    // Xử lý mobile menu
+    setupMobileMenu() {
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+ 
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuBtn.classList.toggle('active');
+            });
+ 
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.classList.remove('active');
+                }
+            });
+        }
+    }
+ 
+    // Xử lý status badge (Đang mở cửa/Đóng cửa)
+    setupStatusBadge() {
+        const updateStatus = () => {
+            const now = new Date();
+            const hours = now.getHours();
+            const day = now.getDay();
+            const statusBadge = document.querySelector('.status-badge');
+ 
+            if (statusBadge) {
+                let isOpen = false;
+ 
+                if (day === 0) { // Chủ nhật
+                    isOpen = hours >= 8 && hours < 12;
+                } else { // Thứ 2-7
+                    isOpen = hours >= 8 && hours < 20;
+                }
+ 
+                statusBadge.textContent = isOpen ? 'Đang mở cửa' : 'Đã đóng cửa';
+                statusBadge.classList.toggle('bg-green-500', isOpen);
+                statusBadge.classList.toggle('bg-red-500', !isOpen);
+            }
+        };
+ 
+        // Update immediately and then every minute
+        updateStatus();
+        setInterval(updateStatus, 60000);
+    }
+ 
+    // Utility function for smooth scroll
+    scrollToElement(element, offset = 0) {
+        window.scrollTo({
+            behavior: 'smooth',
+            top: element.offsetTop - offset
+        });
+    }
+ }
+ 
+ // Initialize application when DOM is loaded
+ document.addEventListener('DOMContentLoaded', () => {
+    window.FMCApp = new FMCApp();
+ });
+ 
+ // Global error handling
+ window.addEventListener('error', (e) => {
+    console.error('Global error:', e.error);
+    // Here you can add error reporting logic
+ });
+ 
+ // Handle page visibility changes
+ document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        // Refresh dynamic content when page becomes visible
+        window.FMCApp.setupStatusBadge();
+    }
+ });
