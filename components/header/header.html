@@ -1,0 +1,60 @@
+<!-- components/header/header.html -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 shadow-sm">
+    <div class="container mx-auto px-4 py-2">
+        <div class="flex items-center justify-between">
+            <!-- Logo & Brand -->
+            <div class="flex items-center gap-4">
+                <img src="/assets/images/logo.png" alt="FMC" class="h-12">
+
+            </div>
+ 
+            <!-- Navigation -->
+
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600">Trang chủ</a>
+                
+                <div class="relative group">
+                    <button class="text-sm font-medium text-gray-700 hover:text-blue-600 flex items-center gap-1">
+                        Chuyên khoa
+                        <i class="fas fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <ul class="absolute hidden group-hover:block top-full left-0 w-48 bg-white shadow-lg rounded-lg overflow-hidden">
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                                Sản Phụ Khoa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                                Tai Mũi Họng
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                                Nội Khoa
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+             
+                <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600">Hình ảnh</a>
+                <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600">Tin tức</a>
+                <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600">Liên hệ</a>
+             </nav>
+ 
+            <!-- Actions -->
+            <div class="flex items-center gap-4">
+                <div class="status-badge px-3 py-1 rounded-full text-sm text-white transition-colors">
+                    <span>Đang mở cửa</span>
+                </div>
+                <a href="tel:02835355353" class="text-blue-600 font-medium hover:text-blue-700">
+                    <i class="fas fa-phone-alt mr-1"></i>
+                    028 3535 5353
+                </a>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                    Đặt lịch khám
+                </button>
+            </div>
+        </div>
+    </div>
+ </header>

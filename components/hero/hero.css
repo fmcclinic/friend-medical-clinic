@@ -1,0 +1,70 @@
+/* components/hero/hero.css */
+.hero-slider {
+    position: relative;
+    height: calc(100vh - 4rem);
+    overflow: hidden;
+ }
+ 
+ .slide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+ }
+ 
+ .slide.active {
+    opacity: 1;
+    visibility: visible;
+ }
+ 
+ .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
+ 
+ /* Navigation */
+ .prev-slide,
+ .next-slide {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+ }
+ 
+ .hero-slider:hover .prev-slide,
+ .hero-slider:hover .next-slide {
+    opacity: 1;
+ }
+ 
+ /* Dots */
+ .dot {
+    transition: background-color 0.3s ease;
+ }
+ 
+ .dot.active {
+    background-color: white;
+ }
+ 
+ /* Feature Cards */
+ .hero-slider .feature-card {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+ }
+ 
+ .hero-slider.loaded .feature-card {
+    transform: translateY(0);
+    opacity: 1;
+ }
+ 
+ /* Content Animation */
+ .hero-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+ }
+ 
+ @keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+ }

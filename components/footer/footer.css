@@ -1,0 +1,101 @@
+/* components/footer/footer.css */
+.footer {
+   background-image: linear-gradient(to bottom, #1a1a1a, #111827);
+}
+
+/* Logo */
+.footer-logo {
+   transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+   opacity: 0.8;
+}
+
+/* Links Animation */
+.footer-link {
+   position: relative;
+   padding-left: 0;
+   transition: all 0.3s ease;
+}
+
+.footer-link::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 0;
+   height: 2px;
+   background-color: #3b82f6;
+   transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+   padding-left: 1rem;
+}
+
+.footer-link:hover::before {
+   width: 0.75rem;
+}
+
+/* Social Icons */
+.social-icon {
+   transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+   transform: translateY(-3px);
+}
+
+/* Back to Top Button */
+.back-to-top {
+   opacity: 0;
+   visibility: hidden;
+   transform: translateY(10px);
+   transition: all 0.3s ease;
+}
+
+.back-to-top.visible {
+   opacity: 1;
+   visibility: visible;
+   transform: translateY(0);
+}
+
+.back-to-top:hover {
+   transform: translateY(-5px);
+   background-color: #2563eb;
+}
+
+/* Contact Info Hover Effects */
+.contact-item {
+   transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+   transform: translateX(5px);
+}
+
+.contact-item i {
+   transition: color 0.3s ease;
+}
+
+.contact-item:hover i {
+   color: #3b82f6;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+   .footer-grid {
+       grid-template-columns: 1fr;
+       gap: 2rem;
+   }
+   
+   .footer-links {
+       text-align: center;
+   }
+   
+   .contact-info {
+       align-items: center;
+   }
+}

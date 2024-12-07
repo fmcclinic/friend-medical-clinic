@@ -1,0 +1,44 @@
+/* components/specialties/specialties.css */
+.specialties-section {
+   background-color: #f8fafc;
+}
+
+.specialty-card {
+   transform: translateY(0);
+   transition: all 0.3s ease;
+   opacity: 0;
+}
+
+.specialty-card.visible {
+   opacity: 1;
+}
+
+.specialty-card:hover {
+   transform: translateY(-10px);
+}
+
+.specialty-card img {
+   transition: transform 0.5s ease;
+}
+
+.specialty-card:hover img {
+   transform: scale(1.1);
+}
+
+/* Animation classes */
+.fade-up {
+   opacity: 0;
+   transform: translateY(20px);
+   transition: all 0.5s ease;
+}
+
+.fade-up.visible {
+   opacity: 1;
+   transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+   .specialty-card {
+       margin-bottom: 2rem;
+   }
+}

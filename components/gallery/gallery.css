@@ -1,0 +1,73 @@
+/* components/gallery/gallery.css */
+.gallery-section {
+   opacity: 0;
+   animation: fadeIn 1s forwards;
+}
+
+.gallery-item {
+   opacity: 0;
+   transform: translateY(20px);
+   transition: all 0.5s ease;
+}
+
+.gallery-item.visible {
+   opacity: 1;
+   transform: translateY(0);
+}
+
+.gallery-item img {
+   transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+   transform: scale(1.1);
+}
+
+.gallery-overlay {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+   padding: 2rem 1.5rem;
+   color: white;
+   transform: translateY(100%);
+   transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+   transform: translateY(0);
+}
+
+/* Lightbox */
+.lightbox {
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.lightbox.active {
+   opacity: 1;
+   visibility: visible;
+}
+
+.lightbox img {
+   transform: scale(0.9);
+   transition: transform 0.3s ease;
+}
+
+.lightbox.active img {
+   transform: scale(1);
+}
+
+@keyframes fadeIn {
+   from { opacity: 0; }
+   to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+   .gallery-overlay {
+       transform: translateY(0);
+       background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+   }
+}

@@ -1,0 +1,111 @@
+<!-- components/news/news.html -->
+<section id="news" class="news-section py-16 bg-gray-50">
+   <div class="container mx-auto px-4">
+       <h2 class="text-3xl font-bold text-center mb-12">Tin Tức Y Học</h2>
+
+       <div class="grid grid-cols-12 gap-6">
+           <!-- Categories & Search -->
+           <div class="col-span-12 md:col-span-3">
+               <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                   <div class="relative mb-6">
+                       <input type="text" 
+                              placeholder="Tìm kiếm..." 
+                              class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                       <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                   </div>
+
+                   <h3 class="font-semibold text-lg mb-4 pb-2 border-b">Chuyên Mục</h3>
+                   <ul class="space-y-2">
+                       <li class="news-category active">
+                           <a href="#" class="flex items-center justify-between p-2 rounded hover:bg-blue-50">
+                               <span>Tất cả</span>
+                               <span class="bg-blue-100 text-blue-600 px-2 rounded">12</span>
+                           </a>
+                       </li>
+                       <li class="news-category">
+                           <a href="#" class="flex items-center justify-between p-2 rounded hover:bg-blue-50">
+                               <span>Sản phụ khoa</span>
+                               <span class="bg-gray-100 text-gray-600 px-2 rounded">5</span>
+                           </a>
+                       </li>
+                       <li class="news-category">
+                           <a href="#" class="flex items-center justify-between p-2 rounded hover:bg-blue-50">
+                               <span>Tai Mũi Họng</span>
+                               <span class="bg-gray-100 text-gray-600 px-2 rounded">4</span>
+                           </a>
+                       </li>
+                       <li class="news-category">
+                           <a href="#" class="flex items-center justify-between p-2 rounded hover:bg-blue-50">
+                               <span>Nội khoa</span>
+                               <span class="bg-gray-100 text-gray-600 px-2 rounded">3</span>
+                           </a>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+
+           <!-- News List -->
+           <div class="col-span-12 md:col-span-9">
+               <!-- Featured News -->
+               <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                   <div class="md:flex">
+                       <div class="md:flex-shrink-0">
+                           <img src="assets/images/news/featured.jpg" 
+                                alt="Featured news" 
+                                class="h-48 w-full md:w-64 object-cover">
+                       </div>
+                       <div class="p-6">
+                           <div class="flex items-center text-sm text-gray-600 mb-1">
+                               <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">Sản phụ khoa</span>
+                               <span class="mx-2">•</span>
+                               <i class="far fa-calendar-alt mr-1"></i>
+                               <span>02/12/2024</span>
+                           </div>
+                           <h3 class="text-xl font-bold text-gray-900 mb-2">
+                               <a href="#" class="hover:text-blue-600">Tầm soát ung thư vú - Bảo vệ sức khỏe phụ nữ</a>
+                           </h3>
+                           <p class="text-gray-600 mb-4">
+                               Hướng dẫn chi tiết về các phương pháp tầm soát ung thư vú hiệu quả...
+                           </p>
+                           <a href="#" class="text-blue-600 hover:text-blue-700 font-medium">
+                               Đọc thêm <i class="fas fa-arrow-right ml-1"></i>
+                           </a>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- News Grid -->
+               <div class="grid md:grid-cols-2 gap-6">
+                   <!-- News Item -->
+                   <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                       <img src="assets/images/news/news1.jpg" 
+                            alt="News 1" 
+                            class="w-full h-48 object-cover">
+                       <div class="p-6">
+                           <div class="flex items-center text-sm text-gray-600 mb-1">
+                               <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">Tai Mũi Họng</span>
+                               <span class="mx-2">•</span>
+                               <i class="far fa-calendar-alt mr-1"></i>
+                               <span>01/12/2024</span>
+                           </div>
+                           <h3 class="text-lg font-bold text-gray-900 mb-2">
+                               <a href="#" class="hover:text-blue-600">Phòng ngừa các bệnh tai mũi họng mùa lạnh</a>
+                           </h3>
+                           <p class="text-gray-600 mb-4">
+                               Các biện pháp phòng ngừa và bảo vệ sức khỏe đường hô hấp...
+                           </p>
+                           <a href="#" class="text-blue-600 hover:text-blue-700 font-medium">
+                               Đọc thêm <i class="fas fa-arrow-right ml-1"></i>
+                           </a>
+                       </div>
+                   </div>
+                   <!-- Repeat for other news items -->
+               </div>
+
+               <!-- Pagination -->
+               <div class="mt-8 flex justify-center">
+                   <nav class="flex space-x-2">
+                       <a href="#" class="px-3 py-2 rounded border text-gray-600 hover:bg-gray-50">Trước</a>
+                       <a href="#" class="px-3 py-2 rounded border bg-blue-600 text-white">1</a>
+                       <a href="#" class="px-3 py-2 rounded border text-gray-600 hover:bg-gray-50">2</a>
+                       <a href="#" class="px-3 py-2 rounded border text-gray-600 hover:bg-gray-50

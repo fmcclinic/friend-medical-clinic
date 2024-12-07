@@ -1,0 +1,74 @@
+<!-- components/hero/hero.html -->
+<section id="hero" class="pt-16 relative min-h-screen">
+    <div class="hero-slider relative w-full h-[calc(100vh-4rem)] overflow-hidden">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+ 
+        <!-- Slides -->
+        <div class="slides relative h-full z-0">
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 active">
+                <img src="/assets/images/hero/slide1.jpg" alt="Phòng khám FMC" class="w-full h-full object-cover">
+            </div>
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                <img src="/assets/images/hero/slide2.jpg" alt="Đội ngũ bác sĩ" class="w-full h-full object-cover">
+            </div>
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                <img src="/assets/images/hero/slide3.jpg" alt="Thiết bị hiện đại" class="w-full h-full object-cover">
+            </div>
+            <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                <img src="/assets/images/hero/slide4.jpg" alt="Thiết bị hiện đại" class="w-full h-full object-cover">
+            </div>
+        </div>
+ 
+        <!-- Content -->
+        <div class="absolute inset-0 z-20">
+            <div class="container mx-auto px-4 h-full flex items-center">
+                <div class="text-white text-center max-w-4xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Chất Lượng Cao</h2>
+                    <p class="text-xl mb-12">Friend Medical Clinic là phòng khám đa khoa hàng đầu với đội ngũ bác sĩ giàu kinh nghiệm từ các bệnh viện lớn</p>
+ 
+                    <!-- Feature Cards -->
+                    <div class="grid md:grid-cols-3 gap-8 mb-12">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                            <i class="fas fa-user-md text-4xl mb-4"></i>
+                            <h3 class="text-xl font-semibold">Đội ngũ y bác sĩ giàu kinh nghiệm</h3>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                            <i class="fas fa-clock text-4xl mb-4"></i>
+                            <h3 class="text-xl font-semibold">8:00 - 20:00 | Cả Chủ Nhật</h3>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                            <i class="fas fa-hospital text-4xl mb-4"></i>
+                            <h3 class="text-xl font-semibold">Máy móc hiện đại quốc tế</h3>
+                        </div>
+                    </div>
+ 
+                    <!-- CTA Buttons -->
+                    <div class="flex justify-center gap-4">
+                        <a href="#appointment" class="px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-calendar-alt mr-2"></i>Đặt Lịch Khám
+                        </a>
+                        <a href="tel:02835355353" class="px-8 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-phone-alt mr-2"></i>028 3535 5353
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+        <!-- Navigation -->
+        <button class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center rounded-full bg-white/30 hover:bg-white/50 transition-all prev-slide">
+            <i class="fas fa-chevron-left text-white text-xl"></i>
+        </button>
+        <button class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center rounded-full bg-white/30 hover:bg-white/50 transition-all next-slide">
+            <i class="fas fa-chevron-right text-white text-xl"></i>
+        </button>
+ 
+        <!-- Dots -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all dot active"></button>
+            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all dot"></button>
+            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all dot"></button>
+        </div>
+    </div>
+ </section>

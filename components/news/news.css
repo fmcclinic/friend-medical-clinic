@@ -1,0 +1,102 @@
+/* components/news/news.css */
+.news-section {
+   opacity: 0;
+   animation: fadeIn 0.5s ease forwards;
+}
+
+/* Categories */
+.news-category a {
+   transition: all 0.3s ease;
+}
+
+.news-category.active a {
+   background-color: #EBF5FF;
+   color: #2563EB;
+}
+
+.news-category a:hover span:last-child {
+   background-color: #2563EB;
+   color: white;
+}
+
+/* News Cards */
+.news-card {
+   transform: translateY(0);
+   transition: all 0.3s ease;
+}
+
+.news-card:hover {
+   transform: translateY(-5px);
+}
+
+.news-card img {
+   transition: transform 0.5s ease;
+}
+
+.news-card:hover img {
+   transform: scale(1.05);
+}
+
+/* Search Input */
+.search-input {
+   transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+   border-color: #2563EB;
+   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Pagination */
+.pagination a {
+   transition: all 0.3s ease;
+}
+
+.pagination a:hover:not(.active) {
+   background-color: #F3F4F6;
+}
+
+.pagination .active {
+   background-color: #2563EB;
+   color: white;
+   border-color: #2563EB;
+}
+
+/* Animations */
+@keyframes fadeIn {
+   from { opacity: 0; transform: translateY(20px); }
+   to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+   opacity: 0;
+   animation: fadeIn 0.5s ease forwards;
+}
+
+/* Featured News */
+.featured-news {
+   position: relative;
+   overflow: hidden;
+}
+
+.featured-news::after {
+   content: 'Nổi bật';
+   position: absolute;
+   top: 1rem;
+   left: -2rem;
+   background: #2563EB;
+   color: white;
+   padding: 0.25rem 2rem;
+   transform: rotate(-45deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+   .news-grid {
+       grid-template-columns: 1fr;
+   }
+   
+   .news-sidebar {
+       margin-bottom: 2rem;
+   }
+}

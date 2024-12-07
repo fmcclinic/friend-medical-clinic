@@ -1,0 +1,71 @@
+\<!-- components/gallery/gallery.html -->
+<section id="gallery" class="gallery-section py-16 bg-white">
+   <div class="container mx-auto px-4">
+       <h2 class="text-3xl font-bold text-center mb-12">Hình Ảnh Phòng Khám</h2>
+
+       <!-- Gallery Grid -->
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+           <!-- Gallery Item 1 -->
+           <div class="gallery-item relative overflow-hidden rounded-xl shadow-lg group">
+               <img src="assets/images/gallery/gallery1.jpg" 
+                    alt="Sảnh chờ" 
+                    class="w-full h-64 object-cover">
+               <div class="gallery-overlay">
+                   <h3 class="font-semibold text-lg mb-1">Sảnh chờ hiện đại</h3>
+                   <p class="text-sm">Không gian thoáng đãng, tiện nghi</p>
+                   <button class="view-image mt-4 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full">
+                       <i class="fas fa-search-plus mr-2"></i>Xem chi tiết
+                   </button>
+               </div>
+           </div>
+
+           <!-- Gallery Item 2 -->
+           <div class="gallery-item relative overflow-hidden rounded-xl shadow-lg group">
+               <img src="assets/images/gallery/gallery2.jpg" 
+                    alt="Phòng khám" 
+                    class="w-full h-64 object-cover">
+               <div class="gallery-overlay">
+                   <h3 class="font-semibold text-lg mb-1">Phòng khám hiện đại</h3>
+                   <p class="text-sm">Trang thiết bị tiên tiến</p>
+                   <button class="view-image mt-4 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full">
+                       <i class="fas fa-search-plus mr-2"></i>Xem chi tiết
+                   </button>
+               </div>
+           </div>
+
+           <!-- Gallery Item 3 -->
+           <div class="gallery-item relative overflow-hidden rounded-xl shadow-lg group">
+               <img src="assets/images/gallery/gallery3.jpg" 
+                    alt="Thiết bị" 
+                    class="w-full h-64 object-cover">
+               <div class="gallery-overlay">
+                   <h3 class="font-semibold text-lg mb-1">Thiết bị y tế</h3>
+                   <p class="text-sm">Công nghệ hiện đại</p>
+                   <button class="view-image mt-4 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full">
+                       <i class="fas fa-search-plus mr-2"></i>Xem chi tiết
+                   </button>
+               </div>
+           </div>
+       </div>
+
+       <!-- Lightbox Modal -->
+       <div id="lightbox" class="lightbox hidden fixed inset-0 z-50 bg-black/90">
+           <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300" id="closeLightbox">
+               <i class="fas fa-times"></i>
+           </button>
+           <button class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-gray-300" id="prevImage">
+               <i class="fas fa-chevron-left"></i>
+           </button>
+           <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-gray-300" id="nextImage">
+               <i class="fas fa-chevron-right"></i>
+           </button>
+           <div class="flex items-center justify-center h-full">
+               <img src="" alt="" class="max-h-[90vh] max-w-[90vw] object-contain">
+           </div>
+           <div class="absolute bottom-4 left-0 right-0 text-center text-white">
+               <h3 class="text-xl font-semibold mb-2"></h3>
+               <p class="text-sm"></p>
+           </div>
+       </div>
+   </div>
+</section>
