@@ -1,80 +1,128 @@
 // js/main.js
 
-// Main Application Class
 class FMCApp {
     constructor() {
         this.init();
     }
  
-    init() {
-        this.setupScrollEffects();
-        this.setupMobileMenu();
-        this.setupStatusBadge();
+    async init() {
+        await this.loadComponents();
+        this.setupEventListeners();
+        this.initializeComponents();
     }
  
-    // Xử lý scroll effects
-    setupScrollEffects() {
-        const header = document.querySelector('header');
-        let lastScroll = 0;
+    // Load tất cả components
+    async loadComponents() {
+        try {
+            const components = [
+                { id: 'header', path: 'components/header/header.html' },
+                { id: 'hero', path: 'components/hero/hero.html' },
+                { id: 'specialties', path: 'components/specialties/specialties.html' },
+                { id: 'gallery', path: 'components/gallery/gallery.html' },
+                { id: 'news', path: 'components/news/news.html' },
+                { id: 'contact', path: 'components/contact/contact.html' },
+                { id: 'footer', path: 'components/footer/footer.html' }
+            ];
  
+            for (const component of components) {
+                const element = document.getElementById(component.id);
+                if (element) {
+                    const response = await fetch(component.path);
+                    const html = await response.text();
+                    element.innerHTML = html;
+                }
+            }
+        } catch (error) {
+            console.error('Error loading components:', error);
+        }
+    }
+ 
+    // Setup các event listeners chung
+    setupEventListeners() {
+        // Scroll events
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
+            this.handleScroll();
+        });
  
-            // Header effect
-            if (currentScroll > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+ 
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mobileMenu && mobileMenuBtn && 
+                !mobileMenuBtn.contains(e.target) && 
+                !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
             }
- 
-            // Hide/Show header on scroll
-            if (currentScroll > lastScroll) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
- 
-            lastScroll = currentScroll;
         });
     }
  
-    // Xử lý mobile menu
-    setupMobileMenu() {
-        const menuBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+    // Initialize các component riêng lẻ
+    initializeComponents() {
+        this.initHeader();
+        this.initHero();
+        this.updateStatus();
+        this.setupScrollToTop();
+    }
  
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                menuBtn.classList.toggle('active');
-            });
- 
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                    mobileMenu.classList.add('hidden');
-                    menuBtn.classList.remove('active');
+    // Header initialization
+    initHeader() {
+        const header = document.querySelector('header');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
             });
         }
     }
  
-    // Xử lý status badge (Đang mở cửa/Đóng cửa)
-    setupStatusBadge() {
-        const updateStatus = () => {
+    // Hero slider initialization
+    initHero() {
+        const heroSlider = document.querySelector('.hero-slider');
+        if (heroSlider) {
+            new HeroSlider();
+        }
+    }
+ 
+    // Scroll handling
+    handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const header = document.querySelector('header');
+ 
+        if (header) {
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+ 
+        // Animate elements on scroll
+        this.animateOnScroll();
+    }
+ 
+    // Status badge update
+    updateStatus() {
+        const updateStatusBadge = () => {
             const now = new Date();
             const hours = now.getHours();
             const day = now.getDay();
             const statusBadge = document.querySelector('.status-badge');
  
             if (statusBadge) {
-                let isOpen = false;
- 
-                if (day === 0) { // Chủ nhật
-                    isOpen = hours >= 8 && hours < 12;
-                } else { // Thứ 2-7
-                    isOpen = hours >= 8 && hours < 20;
-                }
+                const isOpen = (day === 0) ? 
+                    (hours >= 8 && hours < 12) : // Chủ nhật
+                    (hours >= 8 && hours < 20);  // Thứ 2-7
  
                 statusBadge.textContent = isOpen ? 'Đang mở cửa' : 'Đã đóng cửa';
                 statusBadge.classList.toggle('bg-green-500', isOpen);
@@ -83,34 +131,63 @@ class FMCApp {
         };
  
         // Update immediately and then every minute
-        updateStatus();
-        setInterval(updateStatus, 60000);
+        updateStatusBadge();
+        setInterval(updateStatusBadge, 60000);
     }
  
-    // Utility function for smooth scroll
-    scrollToElement(element, offset = 0) {
-        window.scrollTo({
-            behavior: 'smooth',
-            top: element.offsetTop - offset
+    // Scroll to top button
+    setupScrollToTop() {
+        const scrollBtn = document.getElementById('scrollToTop');
+        if (scrollBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollBtn.classList.remove('hidden');
+                } else {
+                    scrollBtn.classList.add('hidden');
+                }
+            });
+ 
+            scrollBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    }
+ 
+    // Animate elements when they come into view
+    animateOnScroll() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        elements.forEach(element => {
+            if (this.isElementInViewport(element)) {
+                element.classList.add('animated');
+            }
         });
+    }
+ 
+    // Helper function to check if element is in viewport
+    isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
     }
  }
  
- // Initialize application when DOM is loaded
+ // Initialize app when DOM is loaded
  document.addEventListener('DOMContentLoaded', () => {
-    window.FMCApp = new FMCApp();
+    window.app = new FMCApp();
  });
  
  // Global error handling
  window.addEventListener('error', (e) => {
     console.error('Global error:', e.error);
-    // Here you can add error reporting logic
  });
  
- // Handle page visibility changes
+ // Handle page visibility
  document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-        // Refresh dynamic content when page becomes visible
-        window.FMCApp.setupStatusBadge();
+        window.app.updateStatus();
     }
  });
