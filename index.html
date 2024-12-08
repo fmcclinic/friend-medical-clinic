@@ -13,6 +13,9 @@
     <!-- Custom CSS -->
 
     <link rel="stylesheet" href="css/style.css"> <!-- Đường dẫn tương đối -->
+
+
+
     <!-- Component CSS -->
     <link rel="stylesheet" type="text/css" href="./components/header/header.css">
     <link rel="stylesheet" type="text/css" href="./components/hero/hero.css">
@@ -26,21 +29,22 @@
 
 
 <body>
-    <!-- Header -->
-    <div id="header"></div>
+    <div id="app">
+        <header id="header"></header>
 
-    <main>
-        <!-- Sections -->
-        <div id="hero"></div>
-        <div id="specialties"></div>
-        <div id="gallery"></div>
-        <div id="news"></div>
-        <div id="contact"></div>
-    </main>
+        <main>
+            <section id="hero"></section>
+            <section id="specialties"></section>
+            <section id="gallery"></section>
+            <section id="news"></section>
+            <section id="contact"></section>
+        </main>
 
     <!-- Footer -->
-    <div id="footer"></div>
 
+    <footer id="footer"></footer>
+    <!-- Single JavaScript bundle -->
+    <script src="js/bundle.js"></script>
     <!-- Scripts -->
     <script src="./js/main.js"></script>
     <script src="./js/components.js"></script>
@@ -54,3 +58,5 @@
     <script src="./components/footer/footer.js"></script>
 </body>
 </html>
+
+
